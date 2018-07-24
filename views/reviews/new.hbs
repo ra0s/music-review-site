@@ -1,0 +1,41 @@
+<div class="row reviewForm">
+<form class="col s12" action="/reviews" method="post">
+    <div class="row">
+    <div class="input-field col s12 form-group">
+        <i class="material-icons prefix">album</i>
+        <input id="icon_prefix" type="text" class="materialize-textarea" name="album_name">
+        <label for="album_name">Album Name</label>
+    </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 form-group">
+            <i class="material-icons prefix">person_outline</i>
+            <input id="icon_prefix" type="text" class="materialize-textarea" name="artist_name">
+            <label for="artist_name">Artist Name</label>
+        </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s12 form-group">
+        <i class="material-icons prefix">create</i>
+        <textarea id="textarea1" class="materialize-textarea" name="review" data-length="500"></textarea>
+        <label for="review">Review</label>
+    </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s9">
+            <i class="material-icons prefix"></i>
+            <textarea id="textarea2" class="materialize-textarea" name="summary" data-length="200"></textarea>
+            <label for="summary">Short summary of your thoughts</label>
+        </div>
+        <div class="input-field col s3 form-group">
+           <i class="material-icons prefix"></i>
+        </div>
+            
+    </div>
+    <div class = "row submit-btn">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+    </button>
+    </div>
+</form>
+</div>

@@ -1,0 +1,10 @@
+<div>
+Albums results
+</div>
+
+<ul>
+  {{#each albums as |album|}}
+    <li>{{album.name}} by {{album.artist}}</li>
+    <img src={{album.img}}>
+  {{/each}}
+</ul>

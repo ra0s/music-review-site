@@ -12,3 +12,27 @@ nav {
   color: white;
   width: 100%
 }
+
+.signup, .login{
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.reviewForm {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
