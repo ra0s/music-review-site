@@ -6,7 +6,7 @@ const Review = require('../models/review');
 
 
 router.use(function(req, res, next) {
-  res.locals.title ="music-review-site";
+  res.locals.title ="Orpheus";
   res.locals.currentUserId = req.session.userId;
   next();
 })

@@ -2,6 +2,9 @@
 <div class="row reviewForm">
 <img src="{{album.img}}" style="height:256px">    
 <form class="col s12" action="/reviews" method="post">
+<div class="row">
+    <h4 class="col s12">Write Review</h4>
+</div>
     <div class="row">
     <div class="input-field col s12 form-group">
         <i class="material-icons prefix">album</i>
@@ -35,6 +38,8 @@
             <label for="rating">Overall Rating (1-10)</label>
         </div>
     </div>
+    <input type="hidden" value="{{album.img}}" name="img" for="img">
+    <input type="hidden" value="{{album.uri}}" name="uri" for="uri">
     <div class = "row submit-btn">
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>

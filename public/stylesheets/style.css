@@ -20,6 +20,10 @@ nav {
   margin-top: 5%;
 }
 
+.signup h4, .login h4, .reviewForm h4, .userForm h4 {
+  display: flex;
+  justify-content: center;
+}
 .submit-btn {
   display: flex;
   justify-content: center;
@@ -29,9 +33,12 @@ nav {
   display: flex;
   justify-content: center;
   width: 50%;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
+.reviewForm img {
+  margin-top: 10%;
+}
 .card-image {
   height: 128px;
   width: 128px;
@@ -48,4 +55,23 @@ nav {
 
 .card-content h5, .card-content h6 {
   display: inline;
+}
+
+.start-btn {
+  width: 30%;
+  height:60px;
+}
+
+.start-btn button {
+  font-size: 24px;
+}
+
+.review-album-info {
+  margin-top: 1%;
+  
+}
+.review-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }

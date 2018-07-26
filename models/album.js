@@ -6,7 +6,6 @@ const AlbumSchema = new Schema({
     artist: {type: String, required: true},
     uri: {type: String},
     img: {type: String},
-    reviews: {type: Array, ref: 'Reviews'},
 })
 
 const Album = mongoose.model('Album', AlbumSchema);

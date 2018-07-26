@@ -1,9 +1,29 @@
 <div>
-  Reviews Index
+  Recent Reviews
 </div>
-
+<div class="container reviews-index">
 <ul>
   {{#each reviews as |review|}}
-    <li>{{review.album_names}}</li>
+    <div class="col s12 m7">
+    <h2 class="header"></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{review.img}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>{{review.album_name}} by {{review.artist_name}}</h5>
+          <br>
+          <h6>{{review.rating}}/10</h6>
+          <p>{{review.summary}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/reviews/{{review._id}}">Read Full Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+            
   {{/each}}
 </ul>
+</div>

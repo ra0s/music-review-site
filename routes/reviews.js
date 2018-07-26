@@ -15,13 +15,9 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/new', auth.requireLogin, function(req, res, next) {
-    // var alb = JSON.stringify(req.query.album);
-    // alb = JSON.parse(alb);  
-    
-   // var alb = new Album({name: req.query.album.name, artist: req.query.album.artist, uri: req.query.album.uri, img: req.query.album.img, reviews: req.query.album.reviews });
-    var alb = new Album({name: req.query.album, artist: req.query.artist, img: req.query.img, uri: req.query.uri});
-    console.log("THIS IS ALB: " + alb);
-    res.render('reviews/new', {album: alb});
+    var album = new Album({name: req.query.album, artist: req.query.artist, img: req.query.img, uri: req.query.uri});
+    console.log("Album Info: " + album);
+    res.render('reviews/new', { album });
 })
 
 router.post('/', (req, res, next) => {
@@ -29,8 +25,19 @@ router.post('/', (req, res, next) => {
     const review = new Review(req.body);
     review.save(function(err, review) {
         if(err) console.log(err);
-        return res.redirect('/');
+        return res.redirect('reviews/' + review._id);
     })
 })
+
+router.get('/:id', (req, res, next) => {
+    Review.findById(req.params.id, function(err, review) {
+
+      if(err) { console.error(err) };
+      res.render('reviews/show', { review, reviewId: req.params.id });
+
+  });
+});
+
+
 
 module.exports = router;
