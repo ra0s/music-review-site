@@ -2,9 +2,35 @@
 Albums results
 </div>
 
-<ul>
+{{!-- <ul>
   {{#each albums as |album|}}
     <li>{{album.name}} by {{album.artist}}</li>
     <img src={{album.img}}>
   {{/each}}
-</ul>
+</ul> --}}
+<div class="container displayResults">
+{{#each albums as |album|}}
+<div class="row">
+  <div class="col s12  resultsCard">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{album.img}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+             {{!-- <input disabled type="text" name="album" value="{{album.name}}">   --}}
+          <form class="col s12" action="/reviews/new?album={{album.name}}&artist={{album.artist}}&uri={{album.uri}}&img={{album.img}}" method="post">
+          <div class="row">
+          <h5>{{album.name}} by {{album.artist}}</h5>
+          </div>
+          <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Review this album</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  {{/each}}
+</div>

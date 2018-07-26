@@ -5,7 +5,8 @@ const ReviewSchema = new Schema({
     album_name: {type: String, required: true},
     artist_name: { type: String, required: true },
     review: { type: String, required: true },
-    rating: { type: Number, required: true },
+    rating: { type: String, required: true },
+    summary: {type: String, required: true},
     user: {type: Schema.Types.ObjectId, ref: 'User'},
 });
   

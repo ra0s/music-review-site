@@ -17,6 +17,7 @@ nav {
   display: flex;
   justify-content: center;
   width: 25%;
+  margin-top: 5%;
 }
 
 .submit-btn {
@@ -24,15 +25,27 @@ nav {
   justify-content: center;
 }
 
-.reviewForm {
+.search, .reviewForm {
   display: flex;
   justify-content: center;
   width: 50%;
+  margin-top: 5%;
 }
 
-.search {
-  display: flex;
-  justify-content: center;
-  width: 50%;
+.card-image {
+  height: 128px;
+  width: 128px;
 }
 
+.displayResults {
+  width: 45%;
+}
+.card-content {
+  height: 128px;
+  padding-top: 0;
+}
+
+
+.card-content h5, .card-content h6 {
+  display: inline;
+}

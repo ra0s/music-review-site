@@ -7,6 +7,7 @@ var spotifyApi = new SpotifyWebApi({
     clientSecret: process.env.CLIENTSECRET,
  });
 
+ //Get authorization to use API
 spotifyApi.initCredential = function() {
    spotifyApi.clientCredentialsGrant()
    .then(
@@ -22,19 +23,20 @@ spotifyApi.initCredential = function() {
         })
 } 
 
-//Returns albums that show up
+//Returns albums based on query
 spotifyApi.findTracks = (album) => {
     const list = [];
+    //Returns list of albums
     return spotifyApi.searchTracks('album:' + album, {type: 'album', limit: 25})
     .then((data) => {
-      //  console.log(data.body);
+        //Push all found albums into array
         data.body.albums.items.forEach((data) => {
-           // console.log(data)
             let alb = new Album({name: data.name, artist: data.artists[0].name, uri: data.uri, img: data.images[1].url});
             list.push(alb);
-            // console.log(alb);
         })
 
+        //Remove duplicates (explicit/clean versions are counted as the same thing)
+        //Credit to https://stackoverflow.com/a/2219024 for this code
         var temp = [];
         for ( var i=0; i < list.length; i++ )
             temp[list[i]['artist']] = list[i];

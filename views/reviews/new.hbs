@@ -1,16 +1,18 @@
+
 <div class="row reviewForm">
+<img src="{{album.img}}" style="height:256px">    
 <form class="col s12" action="/reviews" method="post">
     <div class="row">
     <div class="input-field col s12 form-group">
         <i class="material-icons prefix">album</i>
-        <input id="icon_prefix" type="text" class="materialize-textarea" name="album_name">
+        <input readonly id="icon_prefix" type="text" class="materialize-textarea" name="album_name" value="{{album.name}}" style="color:black">
         <label for="album_name">Album Name</label>
     </div>
     </div>
     <div class="row">
         <div class="input-field col s12 form-group">
             <i class="material-icons prefix">person_outline</i>
-            <input id="icon_prefix" type="text" class="materialize-textarea" name="artist_name">
+            <input readonly id="icon_prefix" type="text" class="materialize-textarea" name="artist_name" value="{{album.artist}}" style="color:black">
             <label for="artist_name">Artist Name</label>
         </div>
     </div>
@@ -22,20 +24,22 @@
     </div>
     </div>
     <div class="row">
-        <div class="input-field col s9">
-            <i class="material-icons prefix"></i>
+        <div class="input-field col s7 form-group">
+            <i class="material-icons prefix">notes</i>
             <textarea id="textarea2" class="materialize-textarea" name="summary" data-length="200"></textarea>
             <label for="summary">Short summary of your thoughts</label>
         </div>
-        <div class="input-field col s3 form-group">
-           <i class="material-icons prefix"></i>
+        <div class="input-field col s5 form-group">
+            <i class="material-icons prefix">rate_review</i>
+            <input id="icon_prefix" type="text" class="materialize-textarea" name="rating">
+            <label for="rating">Overall Rating (1-10)</label>
         </div>
-            
     </div>
     <div class = "row submit-btn">
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
     </button>
     </div>
+
 </form>
 </div>
