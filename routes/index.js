@@ -10,17 +10,19 @@ router.use(function(req, res, next) {
   res.locals.currentUserId = req.session.userId;
   next();
 })
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   spotify.spotifyApi.initCredential();
   res.render('index');
 });
 
-
+// LOGIN
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login', {title: 'Log In'});
 })
 
+//Authenticate user
 router.post('/login', function(req, res, next) {
   User.authenticate(req.body.username, req.body.password, (err, user) => {
     if(err || !user)
@@ -34,6 +36,7 @@ router.post('/login', function(req, res, next) {
   })
 })
 
+//Logout
 router.get('/logout', function(req, res, next) {
   if(req.session)
   {

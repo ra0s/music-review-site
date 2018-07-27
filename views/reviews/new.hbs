@@ -8,36 +8,37 @@
     <div class="row">
     <div class="input-field col s12 form-group">
         <i class="material-icons prefix">album</i>
-        <input readonly id="icon_prefix" type="text" class="materialize-textarea" name="album_name" value="{{album.name}}" style="color:black">
+        <input readonly id="album_name" type="text" class="materialize-textarea" name="album_name" value="{{album.name}}" style="color:black">
         <label for="album_name">Album Name</label>
     </div>
     </div>
     <div class="row">
         <div class="input-field col s12 form-group">
             <i class="material-icons prefix">person_outline</i>
-            <input readonly id="icon_prefix" type="text" class="materialize-textarea" name="artist_name" value="{{album.artist}}" style="color:black">
+            <input readonly id="artist_name" type="text" class="materialize-textarea" name="artist_name" value="{{album.artist}}" style="color:black">
             <label for="artist_name">Artist Name</label>
         </div>
     </div>
     <div class="row">
     <div class="input-field col s12 form-group">
         <i class="material-icons prefix">create</i>
-        <textarea id="textarea1" class="materialize-textarea" name="review" data-length="500"></textarea>
+        <textarea id="review" class="materialize-textarea" name="review" data-length="500"></textarea>
         <label for="review">Review</label>
     </div>
     </div>
     <div class="row">
-        <div class="input-field col s7 form-group">
+        <div class="input-field col s9 form-group">
             <i class="material-icons prefix">notes</i>
-            <textarea id="textarea2" class="materialize-textarea" name="summary" data-length="200"></textarea>
-            <label for="summary">Short summary of your thoughts</label>
+            <textarea id="summary" class="materialize-textarea" name="summary" data-length="200"></textarea>
+            <label for="summary">Short summary of your thoughts (<240 Characters)</label>
         </div>
-        <div class="input-field col s5 form-group">
+        <div class="input-field col s3 form-group">
             <i class="material-icons prefix">rate_review</i>
-            <input id="icon_prefix" type="text" class="materialize-textarea" name="rating">
+            <input id="rating" type="number" min="1" max="10" class="materialize-textarea" name="rating">
             <label for="rating">Overall Rating (1-10)</label>
         </div>
     </div>
+    
     <input type="hidden" value="{{album.img}}" name="img" for="img">
     <input type="hidden" value="{{album.uri}}" name="uri" for="uri">
     <div class = "row submit-btn">

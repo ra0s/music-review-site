@@ -1,18 +1,24 @@
-<div class = "container">
-    <div class = "col s12 review-display">
-        <div class="row">
-        <div class="col s4 review-album-info">
+<div class="container">
+ <div class="row">
+    <div class="col s5">
+      <div class="card-panel review-info">
+        <span class="black-text review-body">
             <h4>{{review.album_name}} by {{review.artist_name}}</h4>
             <iframe src="https://open.spotify.com/embed?uri={{review.uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-        <div class="col s8 review-info">
-            <h6>Username rates this album as a {{review.rating}}/10</h6>
-        </div>
-        <div class="col s8 review-info">
-            <h6><i>"{{review.summary}}"</i></h6>
-        </div>
-        <div class="col s8 review-info">
-            <p>{{review.review}}</p>
-        </div>
-        </div>
+        </span>
+      </div>
     </div>
+    <div class="col s7">
+      <div class="card-panel review-info">
+        <span class="black-text review-body">
+            <h5>Username rates {{review.album_name}} as a {{review.rating}}/10</h5>
+            <h6>Summary:</h6> 
+            <h6>{{review.summary}}</h6>
+            <h6>Full Review:</h6>
+            <p>{{review.review}}</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+        

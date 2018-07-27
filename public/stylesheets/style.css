@@ -45,11 +45,15 @@ nav {
 }
 
 .displayResults {
-  width: 45%;
+  width: 50%;
 }
 .card-content {
   height: 128px;
   padding-top: 0;
+}
+
+.card-content div {
+  margin: 0 0 0 0;
 }
 
 
@@ -74,4 +78,25 @@ nav {
   display: flex;
   justify-content: center;
   margin-top: 2%;
+  border: 2px solid #e0e0eb
+}
+
+.review-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  line-height: 20pt;
+}
+
+.review-body p {
+  white-space: pre-wrap;
+}
+.reviews-index, .album-reviews {
+  width: 65%;
+}
+
+.input-field label {
+  pointer-events: all;
 }

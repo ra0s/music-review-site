@@ -16,18 +16,30 @@ router.get('/', auth.requireLogin, (req, res, next) => {
 
 // Users new
 router.get('/new', (req, res, next) => {
-  res.render('users/new');
+  res.render('users/new', {title: 'Create Account'});
 })
 
 // Users create
 router.post('/', (req, res, next) => {
   console.log(req.body);
   const user = new User(req.body);
+  User.find({username: user.username}, function(err, users) {
+    if(users.length > 0)
+    {
+      var err = new Error('Username not available');
+      err.status = 400;
+      return next(err);
+      
+    }
+    else{
+      user.save(function(err, user) {
+        if(err) console.log(err);
+        return res.redirect('/login');
+      });
+    }
+    
+  })
 
-  user.save(function(err, user) {
-    if(err) console.log(err);
-    return res.redirect('/login');
-  });
 })
 
 module.exports = router;

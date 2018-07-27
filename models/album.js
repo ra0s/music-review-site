@@ -1,3 +1,6 @@
+//This mostly acts as a class to create Album objects. As of right now
+//they are not saved to the database
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

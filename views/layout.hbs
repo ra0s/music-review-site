@@ -5,8 +5,7 @@
      <!-- Compiled and minified CSS -->
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
@@ -21,8 +20,9 @@
                 <li><a class="waves-effect waves-light btn" href="/users/new">Sign Up</a></li>
                 {{/if}}
                 <li><a href="/">Home</a></li>
-                <li><a href="/reviews">Reviews</a></li>
-                <li><a href="/search">Write A Review</a></li>
+                <li><a href="/search">View Album Reviews</a></li>
+                <li><a href="/reviews">Recent Reviews</a></li>
+                <li><a href="/search">Review an Album</a></li>
                 {{#if currentUserId}}
                 <li><a href="/logout">Log Out</a></li>
                 {{else}}
