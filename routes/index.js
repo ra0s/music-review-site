@@ -8,6 +8,7 @@ const Review = require('../models/review');
 router.use(function(req, res, next) {
   res.locals.title ="Orpheus";
   res.locals.currentUserId = req.session.userId;
+  res.locals.currentUsername = req.session.username;
   next();
 })
 
@@ -32,6 +33,7 @@ router.post('/login', function(req, res, next) {
       return next(next_err);
     }
     req.session.userId = user._id;
+    req.session.username = req.body.username;
     return res.redirect('/');
   })
 })
@@ -40,11 +42,14 @@ router.post('/login', function(req, res, next) {
 router.get('/logout', function(req, res, next) {
   if(req.session)
   {
+    res.locals.currentUserId = null;
     req.session.destroy((err) => {
       if(err) return next(err);
+      return res.render('logout');
     });
+    return res.render('logout');
   }
-  return res.redirect('/');
+
 })
 
 module.exports = router;

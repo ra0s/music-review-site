@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/user');
+const Review = require('../models/review');
 const auth = require('../public/javascripts/auth');
 require('dotenv').config();
 /* GET users listing. */
@@ -39,7 +40,17 @@ router.post('/', (req, res, next) => {
     }
     
   })
+})
 
+router.get('/profile', (req, res, next) => {
+  User.findOne({username: req.query.user}, (err, user) => {
+    console.log(req.query.user);
+    console.log(user.length);
+    if(err) { console.error(err) };
+    Review.find({username: user.username}, (err, reviews) => {
+    res.render('users/show', { user, reviews, title: user.username + ' \'s reviews' });
+    })
+  })
 })
 
 module.exports = router;

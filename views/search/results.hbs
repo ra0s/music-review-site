@@ -1,4 +1,5 @@
 <div class="container displayResults">
+{{#if albums}}
 {{#each albums as |album|}}
 <div class="row">
   <div class="col s12  resultsCard">
@@ -22,5 +23,10 @@
     </div>
   </div>
   </div>
-  {{/each}}
+{{/each}}
+{{else}}
+<h3>We were unable to find any results, please try again</h3>
+<h6>Queries we accept: "Album Name", "Album Name" by "Artist", "Album Name" "Artist"</h6>
+<a class="start-btn" href="search"><button class="btn waves-effect waves-light z-depth-3">Search again</button></a>
+{{/if}}
 </div>

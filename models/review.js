@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('../models/user')
 const Schema = mongoose.Schema;
 
 const ReviewSchema = new Schema({
@@ -8,7 +9,8 @@ const ReviewSchema = new Schema({
     rating: { type: Number, required: true },
     summary: {type: String, required: true},
     img: {type: String},
-    uri: {type: String}
+    uri: {type: String},
+    username: {type: String, required: true}
 });
   
 const Review = mongoose.model('Review', ReviewSchema);

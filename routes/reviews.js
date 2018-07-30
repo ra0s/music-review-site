@@ -31,6 +31,8 @@ router.post('/new', auth.requireLogin, function(req, res, next) {
 router.post('/', (req, res, next) => {
     console.log(req.body);
     const review = new Review(req.body);
+    review.username = req.session.username;
+    console.log(review.username);
     review.save(function(err, review) {
         if(err) console.log(err);
         return res.redirect('reviews/' + review._id);

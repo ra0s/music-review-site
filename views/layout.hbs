@@ -2,10 +2,8 @@
 <html>
   <head>
     <title>{{title}}</title>
-     <!-- Compiled and minified CSS -->
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">    <!-- Compiled and minified JavaScript -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
@@ -24,7 +22,14 @@
                 <li><a href="/reviews">Recent Reviews</a></li>
                 <li><a href="/search">Review an Album</a></li>
                 {{#if currentUserId}}
-                <li><a href="/logout">Log Out</a></li>
+                <li> <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger ' href='#' data-target='dropdown1'>{{currentUsername}}</a>
+                  <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="/users/{{currentUserId}}"><i class="material-icons">account_circle</i>My Profile</a></li>
+                    <li><a href="/logout"><i class="material-icons">exit_to_app</i>Log Out</a></li>
+                  </ul>
+                </li>
+                {{!-- <li><a href="/logout">{{currentUsername}}</a></li> --}}
                 {{else}}
                 <li><a href="/login">Log In</a></li>
                 {{/if}}
@@ -35,5 +40,8 @@
 
         
     {{{body}}}
+    <script>
+      M.AutoInit();
+    </script>
   </body>
 </html>

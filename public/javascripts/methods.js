@@ -26,8 +26,52 @@ spotifyApi.initCredential = function() {
 //Returns albums based on query
 spotifyApi.findTracks = (album) => {
     const list = [];
-    //Returns list of albums
-    return spotifyApi.searchTracks('album:' + album, {type: 'album', limit: 25})
+    
+    //The following accounts for if someone enters
+    //"album" by "artist"
+    //It also accounts for if the album or artist name is multiple words long
+    var wordCount = album.split(' ');
+    console.log(wordCount.length);
+    var options = { type: 'album', limit: 25};
+    var by = -1;
+    for(let j = 0; j < wordCount.length; j++)
+    {
+        if(wordCount[j] === 'by')
+        {
+            by = j;
+            break;
+        }
+    }
+    var artistName = "";
+    var albumName = "";
+    if(by!=-1)
+    {
+        for(let k = by+1; k < wordCount.length; k++)
+        {
+            artistName = artistName + wordCount[k];
+            if((k+1)!=wordCount.length) 
+                artistName+=" ";
+        }
+        for(let x = 0; x < by; x++)
+        {
+            albumName = albumName + wordCount[x];
+            if((x+1)!=by)
+                albumName+=" ";
+        }
+    }
+    else {
+        albumName = album;
+    }
+    //console.log(albumName);
+    var searchString;
+    if(artistName != '')
+    {
+        searchString = 'album:' + albumName + ' artist:' + artistName;
+    }
+    else
+        searchString = 'album:' + albumName; 
+    console.log(options)
+    return spotifyApi.searchTracks(searchString, {type: 'album', limit: 25})
     .then((data) => {
         //Push all found albums into array
         data.body.albums.items.forEach((data) => {

@@ -1,4 +1,5 @@
 <div class="container reviews-index">
+    <h3 class="center align">{{user.username}}'s reviews</h3>
 <ul>
   {{#each reviews as |review|}}
     <div class="col s12 m7">
@@ -8,20 +9,17 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h5>{{review.album_name}} by {{review.artist_name}}<h5>
+          <h5>{{review.album_name}} by {{review.artist_name}}</h5>
+          <br>
           <h6>{{review.rating}}/10</h6>
           <p>{{review.summary}}</p>
         </div>
         <div class="card-action">
-          <div class="row">
-          <a class="col s2"href="/reviews/{{review._id}}">Read Full Review</a>
-          <a class="col s2"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</p>
-          </div>
+          <a href="/reviews/{{review._id}}">Read Full Review</a>
         </div>
       </div>
     </div>
-  </div>
-            
+  </div>  
   {{/each}}
 </ul>
 </div>
