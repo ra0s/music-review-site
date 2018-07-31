@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row search">
-<form id="srcAlb" method="POST" action="search/results" class="col s12">
+<form id="srcAlb" class="col s12">
     <div class="row">
         <h1>Search For An Album</h1>
     <div class="input-field col s12 form-group">
@@ -10,10 +10,84 @@
     </div>
     </div>
     <div class = "row submit-btn">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+    <button class="btn waves-effect waves-light" type="submit">Search
     <i class="material-icons right">send</i>
     </button>
     </div>
 </form>
 </div>
 </div>
+<div class=" container displayResults" id="results">
+
+</div>
+<script>
+    const searchForm = document.getElementById('srcAlb')
+    searchForm.onsubmit = (e) => {
+        e.preventDefault();
+        console.log("ASDASD")
+        // from you have to handle the form submission 
+        // get form elements 
+        const searchTerm = document.getElementById('album').value
+        const formData = { album: searchTerm }
+        fetch('/search/results', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            credentials: 'include',
+            headers: {'Content-Type' : 'application/json'}
+        })
+        .then( (res) => {
+            return res.json()
+        } )
+        .then((data) => {
+                let resultsHTML = '';
+                // generate HTML for board squares
+                if(data.length > 0)
+                {
+                    for (let i = 0; i < data.length; i++) {
+                        console.log(data[i].name)
+                    resultsHTML +=
+                        '<div class="row albumResult">\n' +
+                        '<div class="col s12  resultsCard">\n'+
+                            '<div class="card horizontal">\n'+
+                            '<div class="card-image">\n'+
+                                '<img src=' + data[i].img + '>\n'+
+                            '</div>\n'+
+                            '<div class="card-stacked">\n'+
+                                '<div class="card-content s12">\n'+
+                                '<form' + ' action="/reviews/new?album=' + data[i].name + '&artist=' + data[i].artist + '&uri=' + data[i].uri + '&img=' + data[i].img + '" method="post">\n'+
+                                    '<div class="row">\n'+
+                                '<h5 class = "col s12" style="margin-top:0">' + data[i].name + ' by ' + data[i].artist + '</h5>\n'+
+                                    '</div>\n'+
+                                    '<div class="row">\n'+
+                                    '<div class="row">\n'+
+                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light col s4" type="submit">Review this album</button>\n' +
+                                    '<a class="col s4 offset-s1"' + ' href= "/reviews/album?name=' + data[i].name + '&artist=' + data[i].artist +'">\n' +
+                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light" type="button">View Reviews</button></a>\n' +
+                                    '</div>\n' +
+                                    '</div>\n'+
+                                '</form>\n'+
+                                '</div>\n'+
+                            '</div>\n'+
+                            '</div>\n'+
+                        '</div>\n'+
+                        '</div>\n';
+                    }
+                }
+                else {
+                    resultsHTML += 
+                    '<div class="center-align">\n' +
+                    '<h3>We were unable to find any results, please try again</h3>\n' +
+                    '<h6>Queries we accept: "Album Name", "Album Name" by "Artist", "Album Name" "Artist"</h6>\n' +
+                    '</div>';
+                }
+            
+                // insert squares HTML in DOM
+                const resultElement = document.getElementById('results');
+                resultElement.innerHTML = resultsHTML;
+                console.log(data);
+            })
+        .catch( (err) => {
+            console.error(err);
+        });
+     }
+</script>

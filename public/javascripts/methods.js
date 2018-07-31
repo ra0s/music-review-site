@@ -31,13 +31,12 @@ spotifyApi.findTracks = (album) => {
     //"album" by "artist"
     //It also accounts for if the album or artist name is multiple words long
     var wordCount = album.split(' ');
-    console.log(wordCount.length);
-    var options = { type: 'album', limit: 25};
     var by = -1;
     for(let j = 0; j < wordCount.length; j++)
     {
         if(wordCount[j] === 'by')
         {
+            //Find the index where the word "by" is
             by = j;
             break;
         }
@@ -46,12 +45,14 @@ spotifyApi.findTracks = (album) => {
     var albumName = "";
     if(by!=-1)
     {
+        //The artist name is everything after "by"
         for(let k = by+1; k < wordCount.length; k++)
         {
             artistName = artistName + wordCount[k];
             if((k+1)!=wordCount.length) 
                 artistName+=" ";
         }
+        //The album name is everything before "by"
         for(let x = 0; x < by; x++)
         {
             albumName = albumName + wordCount[x];
@@ -62,7 +63,6 @@ spotifyApi.findTracks = (album) => {
     else {
         albumName = album;
     }
-    //console.log(albumName);
     var searchString;
     if(artistName != '')
     {
@@ -70,7 +70,6 @@ spotifyApi.findTracks = (album) => {
     }
     else
         searchString = 'album:' + albumName; 
-    console.log(options)
     return spotifyApi.searchTracks(searchString, {type: 'album', limit: 25})
     .then((data) => {
         //Push all found albums into array

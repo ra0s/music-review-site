@@ -47,6 +47,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// app.post('/api/results', function(req, res, next) {
+//   console.log(req.body);
+//   spotify.spotifyApi.findTracks(req.body.album)
+//   .then((albums) => {
+//       res.json(albums);
+//   })
+//   .catch((err) => {
+//       console.log(err);
+//   })
+  
+// })
 
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGOURI;

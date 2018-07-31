@@ -8,6 +8,9 @@ a {
   color: #00B7FF;
 }
 
+btn {
+  background-color: #417378;
+}
 nav {
   background-color: black;
   color: white;
@@ -15,17 +18,24 @@ nav {
   margin-bottom: 0;
 }
 
+nav ul li:hover {
+  background-color: #417378
+}
+
+nav ul li button {
+  background-color: black;
+}
 .first-section {
-  background-color: #A4CFBE;
+  background-color: #417378;
   padding-top: 2%;
   padding-left: 5%;
   padding-bottom: 7%;
-  color: #3E423A;
+  color: white;
 }
 
 .first-section h1 {
   margin-top: 0;
-  color: black;
+  color: white;
 }
 
 .signup, .login{
@@ -62,6 +72,7 @@ nav {
 .displayResults {
   width: 50%;
 }
+
 .card-content {
   height: 128px;
   padding-top: 0;
@@ -125,4 +136,24 @@ nav {
   display: block;
   top: 12px;
   font-size: 2pt;
+}
+
+.displayResults button {
+  margin-left: 3%;
+}
+
+.albumResult .resultsCard{
+  animation: slide-up 1s ease;
+  
+}
+
+@keyframes slide-up {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }

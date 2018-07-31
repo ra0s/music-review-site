@@ -13,7 +13,7 @@ router.post('/results', function(req, res, next) {
     console.log(req.body);
     spotify.spotifyApi.findTracks(req.body.album)
     .then(function(albums) {
-        res.render('search/results', {albums});
+        res.json(albums);
     })
     .catch((err) => {
         console.log(err);

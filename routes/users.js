@@ -4,16 +4,6 @@ const User = require('../models/user');
 const Review = require('../models/review');
 const auth = require('../public/javascripts/auth');
 require('dotenv').config();
-/* GET users listing. */
-router.get('/', auth.requireLogin, (req, res, next) => {
-  User.find({}, 'username', function(err, users) {
-    if(err) {
-      console.error(err);
-    } else {
-      res.render('users/index', { users });
-    }
-  });
-});
 
 // Users new
 router.get('/new', (req, res, next) => {
@@ -42,6 +32,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
+//Get user profile
 router.get('/profile', (req, res, next) => {
   User.findOne({username: req.query.user}, (err, user) => {
     console.log(req.query.user);
