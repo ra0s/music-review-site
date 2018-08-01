@@ -22,11 +22,11 @@
 </div>
 <script>
     const searchForm = document.getElementById('srcAlb')
+    
+    //Use AJAX to display search results without reloading the page
     searchForm.onsubmit = (e) => {
         e.preventDefault();
         console.log("ASDASD")
-        // from you have to handle the form submission 
-        // get form elements 
         const searchTerm = document.getElementById('album').value
         const formData = { album: searchTerm }
         fetch('/search/results', {
@@ -40,15 +40,15 @@
         } )
         .then((data) => {
                 let resultsHTML = '';
-                // generate HTML for board squares
-                if(data.length > 0)
+                // generate HTML for results
+                if(data.length > 0) //if we found some albums
                 {
                     for (let i = 0; i < data.length; i++) {
                         console.log(data[i].name)
                     resultsHTML +=
                         '<div class="row albumResult">\n' +
-                        '<div class="col s12  resultsCard">\n'+
-                            '<div class="card horizontal">\n'+
+                        '<div class="col s12  resultsCard animated fadeInUp">\n'+
+                            '<div class="card hoverable horizontal">\n'+
                             '<div class="card-image">\n'+
                                 '<img src=' + data[i].img + '>\n'+
                             '</div>\n'+
@@ -60,9 +60,9 @@
                                     '</div>\n'+
                                     '<div class="row">\n'+
                                     '<div class="row">\n'+
-                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light col s4" type="submit">Review this album</button>\n' +
+                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light col s4 z-depth-2" type="submit">Review this album</button>\n' +
                                     '<a class="col s4 offset-s1"' + ' href= "/reviews/album?name=' + data[i].name + '&artist=' + data[i].artist +'">\n' +
-                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light" type="button">View Reviews</button></a>\n' +
+                                    '<button style="margin-left: 2%" class="btn waves-effect waves-light z-depth-2" type="button">View Reviews</button></a>\n' +
                                     '</div>\n' +
                                     '</div>\n'+
                                 '</form>\n'+
@@ -73,7 +73,7 @@
                         '</div>\n';
                     }
                 }
-                else {
+                else { //if no albums found
                     resultsHTML += 
                     '<div class="center-align">\n' +
                     '<h3>We were unable to find any results, please try again</h3>\n' +
@@ -81,7 +81,7 @@
                     '</div>';
                 }
             
-                // insert squares HTML in DOM
+                // insert HTML in DOM
                 const resultElement = document.getElementById('results');
                 resultElement.innerHTML = resultsHTML;
                 console.log(data);

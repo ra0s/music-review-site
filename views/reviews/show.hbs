@@ -1,21 +1,29 @@
 <div class="container">
  <div class="row">
-    <div class="col s5">
-      <div class="card-panel review-info">
+    <div class="col s5 center-align" style="position: fixed; width: 25%">
+      <div class="card-panel review-info animated fadeInDown slow">
         <span class="black-text review-body">
             <h4>{{review.album_name}} by {{review.artist_name}}</h4>
             <iframe src="https://open.spotify.com/embed?uri={{review.uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </span>
       </div>
+      <div>
+      <form action="/reviews/new?album={{review.album_name}}&artist={{review.artist_name}}&uri={{review.uri}}&img={{review.img}}" method="POST">
+        <button class="btn waves-effect waves-light animated fadeInDown" type="submit" method="POST">Review this album</button>
+      </form>
+      </div>
     </div>
-    <div class="col s7">
-      <div class="card-panel review-info">
+    <div class="col s7 offset-s5">
+      <div class="card-panel review-info animated fadeInUp">
         <span class="black-text review-body">
             <h5>{{review.username}} rates {{review.album_name}} as a {{review.rating}}/10</h5>
-            <h6>Summary:</h6> 
-            <h6>{{review.summary}}</h6>
-            <h6>Full Review:</h6>
-            <p>{{review.review}}</p>
+            <h6><i>"{{review.summary}}"</i></h6>
+        </span>
+      </div>
+      <div class="card-panel review-info animated fadeInUp slow">
+        <span class="black-text review-body">
+          <h6>Full Review:</h6>
+          <p>{{review.review}}</p>
         </span>
       </div>
     </div>

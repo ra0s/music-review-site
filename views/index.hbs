@@ -1,17 +1,16 @@
-<div class = "first-section">
-    <div class="col s12">
-    <div class="row">
-        <h1>{{title}}</h1>
-    </div>
-    <div class="row">
-    <h4>Welcome to {{title}}, a site where you can review and discover music.</h4>
-    </div>
-    <div class="row">
-    {{#if currentUserId}}
-    <a class="start-btn" href="search"><button class="btn waves-effect waves-light z-depth-3">Write A Review</button></a>
-    {{else}}
-    <a class="start-btn" href="users/new"><button class="btn waves-effect waves-light z-depth-3">Get Started</button></a>
-    {{/if}}
-    </div>
+<div class="parent-container">
+    <div class = "first-section">
+        <div class="col s12">
+        <div class="row animated fadeIn slower">
+        <h3>Welcome to {{title}}, a site where you can review and discover music.</h3>
+        </div>
+        <div class="row">
+        {{#if currentUserId}}
+        <a class="start-btn" href="search"><button class="animated pulse btn waves-effect waves-light z-depth-3">Write A Review</button></a>
+        {{else}}
+        <a class="start-btn" href="users/new"><button class=" animated pulse btn waves-effect waves-light z-depth-3">Get Started</button></a>
+        {{/if}}
+        </div>
+        </div>
     </div>
 </div>

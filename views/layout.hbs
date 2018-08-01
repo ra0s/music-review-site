@@ -4,8 +4,9 @@
     
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">   
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">  
+    <link rel="stylesheet" href='/stylesheets/style.css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
   </head>
@@ -13,18 +14,21 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
+            <div>
             <a href="/" class="brand-logo">Orpheus</a>
+            </div>
+            <div>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {{#if currentUserId}}
                 {{else}}
-                <li><a class="waves-effect waves-light btn" href="/users/new">Sign Up</a></li>
+                <li id="excl-hover"><a class="waves-effect waves-light btn" href="/users/new">Sign Up</a></li>
                 {{/if}}
                 <li><a href="/">Home</a></li>
                 <li><a href="/search">View Album Reviews</a></li>
                 <li><a href="/reviews">Recent Reviews</a></li>
                 <li><a href="/search">Review an Album</a></li>
                 {{#if currentUserId}}
-                <li> <!-- Dropdown Trigger -->
+                <li class="drop"> <!-- Dropdown Trigger -->
                   <a class='dropdown-trigger ' href='#' data-target='dropdown1'>{{currentUsername}}</a>
                   <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="/users/profile?user={{currentUsername}}"><i class="material-icons">account_circle</i>My Profile</a></li>
@@ -36,6 +40,7 @@
                 <li><a href="/login">Log In</a></li>
                 {{/if}}
             </ul>
+            </div>
         </div>
       </nav>
     </div>

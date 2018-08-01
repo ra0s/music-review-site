@@ -8,9 +8,7 @@ a {
   color: #00B7FF;
 }
 
-btn {
-  background-color: #417378;
-}
+
 nav {
   background-color: black;
   color: white;
@@ -18,12 +16,34 @@ nav {
   margin-bottom: 0;
 }
 
+nav:hover {
+  background-color: black;
+}
 nav ul li:hover {
-  background-color: #417378
+  background-color: #417378;
+}
+nav ul a.btn {
+  margin-top: 3px;
 }
 
-nav ul li button {
+#excl-hover:hover {
   background-color: black;
+}
+.drop:hover {
+  background-color: transparent;
+}
+.drop {
+  width: 72px;
+}
+.drop a:hover {
+  background-color: #417378;
+}
+.dropdown-content {
+  position: relative;
+  background-color: black;
+}
+.dropdown-content li a {
+  color: white;
 }
 .first-section {
   background-color: #417378;
@@ -92,13 +112,20 @@ nav ul li button {
 .card-action { 
   padding: 0 0;
 }
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: #417378;
+}
 .start-btn {
   width: 30%;
+  font-size: 24px;
   height:60px;
 }
 
 .start-btn button {
   font-size: 24px;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 4s;
+  -webkit-animation-iteration-count: infinite;
 }
 
 .review-album-info {
@@ -124,8 +151,12 @@ nav ul li button {
 .review-body p {
   white-space: pre-wrap;
 }
+.review-body h4 {
+  margin-top: 0;
+}
 .reviews-index, .album-reviews {
   width: 65%;
+  animation: slide-up 1s ease;
 }
 
 .input-field label {
@@ -142,7 +173,7 @@ nav ul li button {
   margin-left: 3%;
 }
 
-.albumResult .resultsCard{
+/* .albumResult .resultsCard{
   animation: slide-up 1s ease;
   
 }
@@ -156,4 +187,4 @@ nav ul li button {
       opacity: 1;
       transform: translateY(0);
   }
-}
+} */
