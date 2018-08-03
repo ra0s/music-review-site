@@ -1,5 +1,5 @@
 <div class = "container album-reviews">
-    <h2 class="header">Reviews for {{name}} by {{artist}}</h2>
+    <h2 class="header center-align">Reviews for {{name}} by {{artist}}</h2>
     <ul>
   {{#each reviews as |review|}}
     <div class="col s12 m7">
@@ -21,7 +21,7 @@
     </div>
   </div>
   {{else}}
-  <div class="col s12">
+  <div class="col s12 center-align">
       <h3>There are no reviews available for this album. Write the first review!</h3>
          <button class="btn waves-effect waves-light" type="button" onclick="goBack()">Go Back
         </button>

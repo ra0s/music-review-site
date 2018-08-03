@@ -7,17 +7,19 @@ const auth = require('../public/javascripts/auth');
 
 router.get('/', function(req, res, next) {
     //Displays all reviews(for now)
-    Review.find({}, function(err, reviews) {
+    Review.find().sort({date: -1})
+    .then( (reviews) => {
         //Put recent reviews at the top
-        let sorted = [];
-        for(let i = reviews.length-1; i >= 0; i--)
-        {
-            sorted.push(reviews[i])
-        }
-        if(err)
-        console.log(err)
-        res.render('reviews/index', {reviews: sorted, title: 'Reviews'} );
+        // let sorted = [];
+        // for(let i = reviews.length-1; i >= 0; i--)
+        // {
+        //     sorted.push(reviews[i])
+        // }
+        res.render('reviews/index', {reviews, title: 'Reviews'} );
 
+    })
+    .catch( (err) => {
+        console.log(err);
     })
 
 })
@@ -33,6 +35,8 @@ router.post('/', (req, res, next) => {
     const review = new Review(req.body);
     review.username = req.session.username;
     console.log(review.username);
+    var date = new Date();
+    review.date = date;
     review.save(function(err, review) {
         if(err) console.log(err);
         return res.redirect('reviews/' + review._id);

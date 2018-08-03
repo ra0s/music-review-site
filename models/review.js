@@ -10,7 +10,8 @@ const ReviewSchema = new Schema({
     summary: {type: String, required: true},
     img: {type: String},
     uri: {type: String},
-    username: {type: String, required: true}
+    username: {type: String, required: true},
+    date: {type: Date, required: true}
 });
   
 const Review = mongoose.model('Review', ReviewSchema);

@@ -23,76 +23,16 @@
           <img src="{{album.img}}">
         </div>
         <div class="card-content center-align">
-          <h6>{{album.name}} by {{album.artist}}</h6>
+          <h6>{{album.name}}</h6>
+          <h6>by</h6>
+          <h6>{{album.artist}}</h5>
         </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+        <div class="card-action center-align">
+          <form action="/reviews/new?album={{album.name}}&artist={{album.artist}}&uri={{album.uri}}&img={{album.img}}" method="post">
+          <button class="btn waves-effect waves-light col s5" type="submit">Review It</button>
+          <a style="margin-left: 10px" href="/reviews/album?name={{album.name}}&artist={{album.artist}}" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
         </div>
       </div>
     </div>
     {{/each}}
 </div>
-  {{!-- <div class="container col s12 carousel carousel-slider center">
-      {{!-- {{#each albums as |album|}}
-    <div class="carousel-fixed-item center">
-        <a class="btn waves-effect">button</a>
-        <a class="btn waves-effect">Button 2</a>
-    </div>
-    <div class="carousel-item white black-text">
-      <h2>{{album.name}} by {{album.artist}}</h2>
-      <img style="width: 220px; height: 220px;"src="{{album.img}}">
-    </div>
-    {{/each}} --}}
-    {{!-- <div class="col s6 card carousel-item white black-text" href="#one">
-        <div class="card-image" id="dispImg">
-          <img src="{{albums.[0].img}}">
-        </div>
-        <div class="card-content">
-          <h5>{{albums.[0].name}} by {{albums.[0].artist}}</h5>
-          <br>
-          <a class="btn waves-effect">button</a>
-          <a class="btn waves-effect">Button 2</a>
-        </div>
-    </div>
-        <div class="col s6 card carousel-item white black-text" href="#one">
-        <div class="card-image" id="dispImg">
-          <img src="{{albums.[1].img}}">
-        </div>
-        <div class="card-content">
-          <h5>{{albums.[1].name}} by {{albums.[1].artist}}</h5>
-          <br>
-          <a class="btn waves-effect">button</a>
-          <a class="btn waves-effect">Button 2</a>
-        </div>
-    </div>
-    <div class="col s6 card carousel-item white black-text" href="#one">
-        <div class="card-image" id="dispImg">
-          <img src="{{albums.[2].img}}">
-        </div>
-        <div class="card-content">
-          <h5>{{albums.[2].name}} by {{albums.[2].artist}}</h5>
-          <br>
-          <a class="btn waves-effect">button</a>
-          <a class="btn waves-effect">Button 2</a>
-        </div>
-    </div>
-        <div class="col s6 carousel-item white black-text" href="#one">
-      <div class="card">
-        <div class="card-image" id="dispImg">
-          <img src="{{albums.[3].img}}">
-        </div>
-        <div class="card-content">
-          <h5>{{albums.[3].name}} by {{albums.[3].artist}}</h5>
-          <br>
-          <a class="btn waves-effect">button</a>
-          <a class="btn waves-effect">Button 2</a>
-        </div>
-      </div>
-    </div> --}} 
-
-<script>
- var instance = M.Carousel.init({
-    fullWidth: true,
-    indicators: true
-  });
-</script>
