@@ -15,7 +15,15 @@ router.use(function(req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   spotify.spotifyApi.initCredential();
-  res.render('index');
+  return spotify.spotifyApi.newReleases()
+  .then( (albums) => {
+    console.log(albums)
+    res.render('index', {albums});
+  })
+  .catch( (err) => {
+    console.log(err);
+  })
+  
 });
 
 // LOGIN

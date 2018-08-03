@@ -49,6 +49,7 @@ nav ul a.btn {
   background-color: #417378;
   padding-top: 2%;
   padding-left: 5%;
+  padding-right: 2%;
   padding-bottom: 7%;
   color: white;
 }
@@ -173,18 +174,15 @@ nav ul a.btn {
   margin-left: 3%;
 }
 
-/* .albumResult .resultsCard{
-  animation: slide-up 1s ease;
-  
+.new-release .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
 }
 
-@keyframes slide-up {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-} */
+.new-release .card img {
+  margin-top: 10%;
+}
+
