@@ -3,31 +3,32 @@
   <head>
     
     <title>{{title}}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">  
     <link rel="stylesheet" href='/stylesheets/style.css' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
   </head>
   <body>
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-            <div>
-            <a href="/" class="brand-logo">Orpheus</a>
-            </div>
-            <div>
+            <img src="/images/lyre-white.png" width="64"><a style="margin-left: 5px"href="/" class="brand-logo">Orpheus</a>
+            
+            
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {{#if currentUserId}}
                 {{else}}
                 <li id="excl-hover"><a class="waves-effect waves-light btn" href="/users/new">Sign Up</a></li>
                 {{/if}}
-                <li><a href="/">Home</a></li>
-                <li><a href="/reviews">Recent Reviews</a></li>
-                <li><a href="/search">Albums</a></li>
+                <li class="{{#if home_active}}active{{/if}}"><a href="/">Home</a></li>
+                <li class="{{#if reviews_active}}active{{/if}}"><a href="/reviews">Recent Reviews</a></li>
+                <li class="{{#if albums_active}}active{{/if}}"><a href="/search">Albums</a></li>
                 {{#if currentUserId}}
-                <li class="drop"> <!-- Dropdown Trigger -->
+                <li class="{{#if user_active}}active{{/if}} drop" style="width: calc({{currentUsername.length}}px*12)"> <!-- Dropdown Trigger -->
                   <a class='dropdown-trigger ' href='#' data-target='dropdown1'>{{currentUsername}}</a>
                   <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="/users/profile?user={{currentUsername}}"><i class="material-icons">account_circle</i>My Profile</a></li>
@@ -39,13 +40,14 @@
                 <li><a href="/login">Log In</a></li>
                 {{/if}}
             </ul>
-            </div>
+            
         </div>
       </nav>
     </div>
-
+    <main>
         
     {{{body}}}
+    </main>
     <script>
       M.AutoInit();
     </script>

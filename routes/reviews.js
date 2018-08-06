@@ -7,16 +7,11 @@ const auth = require('../public/javascripts/auth');
 
 router.get('/', function(req, res, next) {
     //Displays all reviews(for now)
+    //Sorted by date
     Review.find().sort({date: -1})
     .then( (reviews) => {
-        //Put recent reviews at the top
-        // let sorted = [];
-        // for(let i = reviews.length-1; i >= 0; i--)
-        // {
-        //     sorted.push(reviews[i])
-        // }
-        res.render('reviews/index', {reviews, title: 'Reviews'} );
-
+        var reviews_active = true;
+        res.render('reviews/index', {reviews, title: 'Reviews', reviews_active} );
     })
     .catch( (err) => {
         console.log(err);

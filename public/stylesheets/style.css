@@ -8,7 +8,6 @@ a {
   color: #00B7FF;
 }
 
-
 nav {
   background-color: black;
   color: white;
@@ -16,11 +15,19 @@ nav {
   margin-bottom: 0;
 }
 
+.page-footer {
+  background-color: #F4F7D9;
+  margin-top: 4%;
+}
+
 nav:hover {
   background-color: black;
 }
 nav ul li:hover {
   background-color: #417378;
+}
+nav ul li.active {
+  border-bottom: 3px solid #417378;
 }
 nav ul a.btn {
   margin-top: 3px;
@@ -188,5 +195,10 @@ nav ul a.btn {
 
 .new-release .card .card-content h6 {
   display: block;
+}
+
+.contact-info a {
+  margin-left: 3px;
+  margin-right: 3px;
 }
 

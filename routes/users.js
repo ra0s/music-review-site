@@ -25,21 +25,25 @@ router.post('/', (req, res, next) => {
     else{
       user.save(function(err, user) {
         if(err) console.log(err);
-        return res.redirect('/login');
-      });
-    }
-    
-  })
+        User.authenticate(req.body.username, req.body.password, (err, u) => {
+          req.session.userId = user._id;
+          req.session.username = req.body.username;
+          return res.redirect('/');
+        })
+      })
+  }
 })
+});
 
 //Get user profile
 router.get('/profile', (req, res, next) => {
   User.findOne({username: req.query.user}, (err, user) => {
-    console.log(req.query.user);
-    console.log(user.length);
+    var user_active = false;
+    if(user.username == req.session.userame)
+      user_active = true;
     if(err) { console.error(err) };
     Review.find({username: user.username}, (err, reviews) => {
-    res.render('users/show', { user, reviews, title: user.username + ' \'s reviews' });
+    res.render('users/show', { user, reviews, title: user.username + '\'s reviews', user_active });
     })
   })
 })

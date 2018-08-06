@@ -3,7 +3,7 @@
     <ul>
   {{#each reviews as |review|}}
     <div class="col s12 m7">
-    <div class="card horizontal">
+    <div class="card horizontal animated fadeInUp slow hoverable">
       <div class="card-image">
         <img src="{{review.img}}">
       </div>
@@ -16,6 +16,8 @@
         </div>
         <div class="card-action">
           <a href="/reviews/{{review._id}}">Read Full Review</a>
+          <a class="col s2"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
+
         </div>
       </div>
     </div>

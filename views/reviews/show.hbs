@@ -7,10 +7,14 @@
             <iframe src="https://open.spotify.com/embed?uri={{review.uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </span>
       </div>
-      <div>
+      <div class="row">
       <form action="/reviews/new?album={{review.album_name}}&artist={{review.artist_name}}&uri={{review.uri}}&img={{review.img}}" method="POST">
         <button class="btn waves-effect waves-light animated fadeInDown" type="submit" method="POST">Review this album</button>
       </form>
+      </div>
+      <div class="row">
+        <a class="animated fadeInDown" href="/reviews/album?name={{review.album_name}}&artist={{review.artist_name}}">
+        <button class="btn waves-effect waves-light" type="button">All Reviews for {{review.album_name}}</button></a>
       </div>
     </div>
     <div class="col s7 offset-s5" style="margin-left:44%">
@@ -22,7 +26,7 @@
       </div>
       <div class="card-panel review-info animated fadeInUp slow">
         <span class="black-text review-body">
-          <h6>Full Review:</h6>
+          <h5>Full Review:</h5>
           <p>{{review.review}}</p>
         </span>
       </div>

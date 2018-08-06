@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
   return spotify.spotifyApi.newReleases()
   .then( (albums) => {
     console.log(albums)
-    res.render('index', {albums});
+    var home_active = true;
+    res.render('index', {albums, home_active});
   })
   .catch( (err) => {
     console.log(err);

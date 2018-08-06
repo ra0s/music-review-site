@@ -17,8 +17,8 @@
 <div class="container row">
     <h3 class="center-align">New Releases</h3>
     {{#each albums as |album|}}
-    <div class="col s3 new-release animated fadeInRight">
-      <div class="card">
+    <div class="col s3 new-release animated fadeInRight fast">
+      <div class="card hoverable">
         <div class="card-image">
           <img src="{{album.img}}">
         </div>
@@ -36,3 +36,24 @@
     </div>
     {{/each}}
 </div>
+
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12 contact-info">
+        <h5 class="black-text">Built by Sid Rao</h5>
+        <a href="https://www.linkedin.com/in/siddharth-rao/"><img height="48" src="/images/linkedin.svg"></a>
+        <a href="https://github.com/ra0s"><img height="48" src="/images/github.svg"></a>
+        <a href="mailto:sidrrao01@gmail.com"><img height="48" src="/images/email.svg"></a>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="black-text">You can view and contribute to the project <a href="https://github.com/ra0s/music-review-site/">here</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright" style="background-color:#F4F7D9">
+    <div class="container">
+    </div>
+  </div>
+</footer>

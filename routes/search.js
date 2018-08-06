@@ -5,8 +5,9 @@ const spotify = require('../public/javascripts/methods');
 const User = require('../models/user');
 const Review = require('../models/review');
 
-router.get('/', function(req, res, next) {
-    res.render('search/index');
+router.get('/', (req, res) => {
+    var albums_active = true;
+    res.render('search/index', {albums_active});
 })
 
 router.post('/results', function(req, res, next) {
