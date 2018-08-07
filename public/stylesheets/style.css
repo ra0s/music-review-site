@@ -16,8 +16,14 @@ nav {
 }
 
 .page-footer {
-  background-color: #F4F7D9;
+  background-color: #6C6E58;
+  color: white;
   margin-top: 4%;
+  padding-bottom: 10px;
+}
+
+.page-footer .row {
+  margin-bottom: 0;
 }
 
 nav:hover {
@@ -92,21 +98,23 @@ nav ul a.btn {
 .reviewForm img {
   margin-top: 10%;
 }
-.card-image {
-  height: 128px;
-  width: 128px;
+.card-image img {
+  width: 277px;
+  margin-left: 0;
 }
+
 
 .displayResults {
   width: 50%;
 }
 
-.card-content {
-  height: 128px;
-  padding-top: 0;
+.card-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.card-content div {
+
+.reviews-index .card-content div {
   margin: 0 0 0 0;
 }
 
@@ -131,8 +139,8 @@ nav ul a.btn {
 
 .start-btn button {
   font-size: 24px;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-delay: 4s;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-delay: 2s;
   -webkit-animation-iteration-count: infinite;
 }
 
@@ -181,17 +189,28 @@ nav ul a.btn {
   margin-left: 3%;
 }
 
+.displayResults .card-image {
+  height: 150px;
+  width: 150px;
+}
+
+.displayResults .row {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.displayResults .card-content {
+  padding-bottom: 0;
+}
+
 .new-release .card {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 90%;
+  width: 93%
 }
 
-.new-release .card img {
-  margin-top: 10%;
-}
 
 .new-release .card .card-content h6 {
   display: block;
@@ -201,4 +220,3 @@ nav ul a.btn {
   margin-left: 3px;
   margin-right: 3px;
 }
-

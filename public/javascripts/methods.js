@@ -96,9 +96,8 @@ spotifyApi.findTracks = (album) => {
 
 spotifyApi.newReleases = () => {
     var arr = [];
-    return spotifyApi.getNewReleases({ limit : 4, offset: 0 })
+    return spotifyApi.getNewReleases({ limit : 8, offset: 0 })
     .then( (data) => {
-        console.log(data.body);
         data.body.albums.items.forEach( (data) => {
         let alb = new Album({name: data.name, artist: data.artists[0].name, uri: data.uri, img: data.images[1].url});
         arr.push(alb);

@@ -37,13 +37,14 @@ router.post('/login', function(req, res, next) {
   User.authenticate(req.body.username, req.body.password, (err, user) => {
     if(err || !user)
     {
-      const next_err = new Error('username or password incorrect');
-      next_err.status = 401;
-      return next(next_err);
+      res.json({result: 'Invalid username or password'});
     }
-    req.session.userId = user._id;
-    req.session.username = req.body.username;
-    return res.redirect('/');
+    else
+    {
+      req.session.userId = user._id;
+      req.session.username = req.body.username;
+      res.json({result:'logged in'});
+    }
   })
 })
 

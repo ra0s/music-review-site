@@ -26,7 +26,6 @@
     //Use AJAX to display search results without reloading the page
     searchForm.onsubmit = (e) => {
         e.preventDefault();
-        console.log("ASDASD")
         const searchTerm = document.getElementById('album').value
         const formData = { album: searchTerm }
         fetch('/search/results', {
@@ -50,7 +49,7 @@
                         '<div class="col s12  resultsCard animated fadeInUp">\n'+
                             '<div class="card hoverable horizontal">\n'+
                             '<div class="card-image">\n'+
-                                '<img src=' + data[i].img + '>\n'+
+                                '<img src=' + data[i].img + ' style="width:150px" >\n'+
                             '</div>\n'+
                             '<div class="card-stacked">\n'+
                                 '<div class="card-content s12">\n'+

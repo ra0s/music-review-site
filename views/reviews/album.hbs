@@ -4,11 +4,11 @@
   {{#each reviews as |review|}}
     <div class="col s12 m7">
     <div class="card horizontal animated fadeInUp slow hoverable">
-      <div class="card-image">
+      <div class="card-image" style="width: 171px">
         <img src="{{review.img}}">
       </div>
       <div class="card-stacked">
-        <div class="card-content">
+        <div class="card-content" style="padding-bottom:0">
           <h5>{{review.album_name}} by {{review.artist_name}}</h5>
           <br>
           <h6>{{review.rating}}/10</h6>

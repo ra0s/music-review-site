@@ -6,9 +6,9 @@
         </div>
         <div class="row">
         {{#if currentUserId}}
-        <a class="start-btn" href="search"><button class="animated pulse btn waves-effect waves-light z-depth-3">Write A Review</button></a>
+        <a class="start-btn" href="search"><button class="animated pulse btn-large waves-light z-depth-3">Write A Review</button></a>
         {{else}}
-        <a class="start-btn" href="users/new"><button class=" animated pulse btn waves-effect waves-light z-depth-3">Get Started</button></a>
+        <a class="start-btn" href="users/new"><button class=" animated pulse btn-large waves-light z-depth-3">Get Started</button></a>
         {{/if}}
         </div>
         </div>
@@ -22,14 +22,13 @@
         <div class="card-image">
           <img src="{{album.img}}">
         </div>
-        <div class="card-content center-align">
-          <h6>{{album.name}}</h6>
-          <h6>by</h6>
-          <h6>{{album.artist}}</h5>
+        <div class="card-title center-align">
+          <h6><b>{{album.name}}</b></h6>
+          <h6>{{album.artist}}</h6>
         </div>
         <div class="card-action center-align">
           <form action="/reviews/new?album={{album.name}}&artist={{album.artist}}&uri={{album.uri}}&img={{album.img}}" method="post">
-          <button class="btn waves-effect waves-light col s5" type="submit">Review It</button>
+          <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
           <a style="margin-left: 10px" href="/reviews/album?name={{album.name}}&artist={{album.artist}}" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
         </div>
       </div>
@@ -52,8 +51,5 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright" style="background-color:#F4F7D9">
-    <div class="container">
-    </div>
   </div>
 </footer>

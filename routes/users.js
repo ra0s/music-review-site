@@ -17,9 +17,10 @@ router.post('/', (req, res, next) => {
   User.find({username: user.username}, function(err, users) {
     if(users.length > 0)
     {
-      var err = new Error('Username not available');
-      err.status = 400;
-      return next(err);
+      // var err = new Error('Username not available');
+      // err.status = 400;
+      // return next(err);
+      res.json( {result: 'Username not available'} )
       
     }
     else{
@@ -28,7 +29,7 @@ router.post('/', (req, res, next) => {
         User.authenticate(req.body.username, req.body.password, (err, u) => {
           req.session.userId = user._id;
           req.session.username = req.body.username;
-          return res.redirect('/');
+          res.json( {result: 'Successful'} );
         })
       })
   }

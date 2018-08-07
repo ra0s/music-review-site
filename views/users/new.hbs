@@ -1,6 +1,6 @@
 
 <div class="row signup">
-<form class="col s12 userForm" action="/users" method="post">
+<form id="usrFrm" class="col s12 userForm">
     <div class="row">
         <h4 class="col s12">Create Account</h4>
     </div>
@@ -30,3 +30,34 @@
     </div>
 </form>
 </div>
+
+<script>
+    var userForm = document.getElementById('usrFrm');
+
+    userForm.onsubmit = (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const formData = {name: name, username: username, password: password};
+        fetch('/users', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            credentials: 'include',
+            headers: {'Content-Type':'application/json'}
+        })
+        .then( (res) => {
+            return res.json()
+        })
+        .then( (result) => {
+            if(result.result == 'Successful')
+            {
+                window.location = '/'
+            } else {
+                window.alert('That username is not available, please try another');
+            }
+
+        })
+    }
+</script>

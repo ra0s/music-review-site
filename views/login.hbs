@@ -1,5 +1,5 @@
 <div class="row login">
-<form class="col s12" action="/login" method="post">
+<form id="lgnForm" class="col s12">
     <div class="row">
         <h4>Log In</h4>
     </div>
@@ -24,3 +24,37 @@
     </div>
 </form>
 </div>
+
+<script>
+    var loginForm = document.getElementById('lgnForm');
+
+    loginForm.onsubmit = (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const formData = {username: username, password: password};
+        fetch('/login', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            credentials: 'include',
+            headers: {'Content-Type':'application/json'}
+        })
+        .then( (res) => {
+            return res.json()
+        })
+        .then( (result) => {
+            if(result.result == 'Invalid username or password')
+            {
+                window.alert('Invalid username or password, please try again');
+            }
+            else
+            {
+                window.location = '/';
+            }
+        })
+        .catch( (err) => {
+            console.log(err);
+        })
+    }
+
+</script>
