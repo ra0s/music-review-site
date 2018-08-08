@@ -51,13 +51,26 @@ nav ul a.btn {
 .drop a:hover {
   background-color: #417378;
 }
-.dropdown-content {
+
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 16px;
+  color: black;
+  display: block;
+  line-height: 22px;
+  padding: 14px 16px;
+}
+
+nav .dropdown-content {
   position: relative;
   background-color: black;
+  display: block;
+  top: 12px;
+  font-size: 2pt;
 }
-.dropdown-content li a {
+nav .dropdown-content li a {
   color: white;
 }
+
 .first-section {
   background-color: #417378;
   padding-top: 2%;
@@ -177,12 +190,6 @@ nav ul a.btn {
 
 .input-field label {
   pointer-events: all;
-}
-
-.dropdown-content {
-  display: block;
-  top: 12px;
-  font-size: 2pt;
 }
 
 .displayResults button {

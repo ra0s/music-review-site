@@ -1,27 +1,88 @@
 <div class="container reviews-index">
-<ul>
-  {{#each reviews as |review|}}
-    <div class="col s12 m7">
-    <div class="card horizontal hoverable animated fadeInUp">
-      <div class="card-image">
-        <img src="{{review.img}}" style="width:171px">
+  <div class="row center-align">
+      <div class="col s2">
+        <h4>Sort by:</h4>
       </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h5>{{review.album_name}} by {{review.artist_name}}<h5>
-          <br>
-          <h6>{{review.rating}}/10</h6>
-          <p>{{review.summary}}</p>
+      <div class="input-field col s10">
+          <select id="sort-select">
+            <option value="1" selected>Age: Newest first</option>
+            <option value="2">Age: Oldest first</option>
+            <option value="3">Rating: Highest - Lowest</option>
+            <option value="4">Rating: Lowest - Highest</option>
+            <option value="5">Album Name: A-Z</option>
+            <option value="6">Album Name: Z-A</option>
+            <option value="7">Artist Name: A-Z</option>
+            <option value="8">Artist Name: Z-A</option>
+          </select>
+      </div>
+  </div>
+    
+
+  <ul id="display-reviews">
+    {{#each reviews as |review|}}
+      <div class="col s12 m7">
+      <div class="card horizontal hoverable animated fadeInUp">
+        <div class="card-image">
+          <img src="{{review.img}}" style="width:171px">
         </div>
-        <div class="card-action">
-          <div class="row">
-            <a class="col s2"href="/reviews/{{review._id}}">Read Full Review</a>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5>{{review.album_name}} by {{review.artist_name}}<h5>
+            <br>
+            <h6>{{review.rating}}/10</h6>
+            <p>{{review.summary}}</p>
+          </div>
+          <div class="card-action">
+            <a href="/reviews/{{review._id}}">Read Full Review</a>
             <a class="col s2"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
           </div>
         </div>
       </div>
-    </div>
-  </div>    
-  {{/each}}
-</ul>
+    </div>    
+    {{/each}}
+  </ul>
 </div>
+
+<script>
+  const select = document.getElementById('sort-select');
+  select.onchange = (e) => {
+    const sort = select.value;
+    const formData = {sort: sort};
+    fetch('/reviews/sort', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      credentials: 'include',
+      headers: {'Content-Type' : 'application/json'}
+    })
+    .then( (res) => {
+      return res.json()
+    })
+    .then( (data) => {
+      let newHTML = '';
+      for(let i = 0; i < data.length; i++) {
+        newHTML += 
+        '<div class="col s12 m7">\n' +
+        '<div class="card horizontal hoverable animated fadeInUp">\n' +
+        '<div class="card-image">\n' +
+          '<img src=' + data[i].img + ' style="width:171px">\n' +
+        '</div>\n' +
+        '<div class="card-stacked">\n' +
+          '<div class="card-content">\n' +
+            '<h5>'+ data[i].album_name + ' by ' + data[i].artist_name + '<h5>\n' +
+            '<br>\n' +
+            '<h6>' + data[i].rating + '/10</h6>\n' +
+            '<p>' + data[i].summary + '</p>\n' +
+          '</div>\n' +
+          '<div class="card-action">\n' +
+            '<a href="/reviews/' + data[i]._id + '">Read Full Review</a>\n' +
+            '<a class="col s2"href="/users/profile?user=' + data[i].username + '">Reviewed by ' + data[i].username + '</a>\n' +
+          '</div>\n' +
+        '</div>\n' +
+      '</div>\n' +
+    '</div>\n';    
+      }
+      const reviewContainer = document.getElementById('display-reviews');
+      reviewContainer.innerHTML = newHTML;
+    })
+  }
+</script>

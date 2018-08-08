@@ -17,11 +17,7 @@ router.post('/', (req, res, next) => {
   User.find({username: user.username}, function(err, users) {
     if(users.length > 0)
     {
-      // var err = new Error('Username not available');
-      // err.status = 400;
-      // return next(err);
-      res.json( {result: 'Username not available'} )
-      
+      res.json( {result: 'Username not available'} ) 
     }
     else{
       user.save(function(err, user) {
@@ -32,8 +28,8 @@ router.post('/', (req, res, next) => {
           res.json( {result: 'Successful'} );
         })
       })
-  }
-})
+    }
+  })
 });
 
 //Get user profile

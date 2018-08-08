@@ -5,7 +5,7 @@ const Album = require('../models/album');
 const auth = require('../public/javascripts/auth');
 
 
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
     //Displays all reviews(for now)
     //Sorted by date
     Review.find().sort({date: -1})
@@ -19,17 +19,42 @@ router.get('/', function(req, res, next) {
 
 })
 
-router.post('/new', auth.requireLogin, function(req, res, next) {
+router.post('/sort', (req, res) => {
+    const sort_param = req.body.sort;
+    var formData;
+    if(sort_param == 1)
+        formData = { date: -1};
+    else if(sort_param == 2)
+        formData = { date: 1};
+    else if(sort_param == 3)
+        formData = { rating: -1};
+    else if(sort_param == 4)
+        formData = { rating: 1};
+    else if(sort_param == 5)
+        formData = { album_name: 1};
+    else if(sort_param == 6)
+        formData = { album_name: -1};
+    else if(sort_param == 7)
+        formData = { artist_name: 1};
+    else if(sort_param == 8)
+        formData = { artist_name: -1};
+    Review.find().sort(formData)
+    .then( (reviews) => {
+        res.json(reviews);
+    })
+    .catch( (err) => {
+        console.log(err);
+    })
+} )
+
+router.post('/new', auth.requireLogin, (req, res) => {
     var album = new Album({name: req.query.album, artist: req.query.artist, img: req.query.img, uri: req.query.uri});
-    console.log("Album Info: " + album);
     res.render('reviews/new', { album, title: 'New Review' });
 })
 
-router.post('/', (req, res, next) => {
-    console.log(req.body);
+router.post('/', (req, res) => {
     const review = new Review(req.body);
     review.username = req.session.username;
-    console.log(review.username);
     var date = new Date();
     review.date = date;
     review.save(function(err, review) {
@@ -39,16 +64,18 @@ router.post('/', (req, res, next) => {
 })
 
 //Get reviews of a specific album
-router.get('/album', function(req, res, next) {
-    console.log("GET ALBUM + NAME");
-    console.log(req.query.name);
+router.get('/album', (req, res) => {
     Review.find({album_name: req.query.name, artist_name: req.query.artist}, function(err, reviews) {
-        console.log(reviews.length);
-        res.render('reviews/album', {reviews, name: req.query.name, artist: req.query.artist, title: req.query.name + ' reviews'});
+        var average = 0;
+        for(let i = 0; i < reviews.length; i++)
+            average+=reviews[i].rating;
+        average/=reviews.length;
+        average = Math.round(average*10)/10;
+        res.render('reviews/album', {reviews, average, name: req.query.name, artist: req.query.artist, title: req.query.name + ' reviews'});
     })
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
     Review.findById(req.params.id, function(err, review) {
       if(err) { console.error(err) };
       res.render('reviews/show', { review, reviewId: req.params.id, title: 'Review of ' + review.album_name });

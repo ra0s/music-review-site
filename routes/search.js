@@ -7,6 +7,7 @@ const Review = require('../models/review');
 
 router.get('/', (req, res) => {
     var albums_active = true;
+    spotify.spotifyApi.initCredential();
     res.render('search/index', {albums_active});
 })
 
