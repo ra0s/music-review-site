@@ -9,6 +9,7 @@ router.use(function(req, res, next) {
   res.locals.title ="Orpheus";
   res.locals.currentUserId = req.session.userId;
   res.locals.currentUsername = req.session.username;
+  res.locals.trackingID = process.env.TRACKINGID;
   next();
 })
 

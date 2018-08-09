@@ -13,7 +13,7 @@ spotifyApi.initCredential = function() {
    .then( (data) => {
             console.log('The access token expires in ' + data.body['expires_in']);
             console.log('The access token is ' + data.body['access_token']);
-            data.body['expires_in'] = 4800;
+            data.body['expires_in'] = 30000;
             console.log('The access token expires in ' + data.body['expires_in']);
 
             // Save the access token so that it's used in future calls

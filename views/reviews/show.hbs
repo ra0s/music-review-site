@@ -1,6 +1,6 @@
 <div class="container">
- <div class="row">
-    <div class="col s5 center-align" style="position: fixed; width: 25%">
+ <div class="row" style="width: 120%">
+    <div class="col s4 center-align" style="position: fixed; width: 25%;">
       <div class="card-panel review-info animated fadeInDown slow" style="width:480px; height:500px">
         <span class="black-text review-body">
             <h4>{{review.album_name}} by {{review.artist_name}}</h4>
@@ -17,7 +17,7 @@
         <button class="btn waves-effect waves-light" type="button">All Reviews for {{review.album_name}}</button></a>
       </div>
     </div>
-    <div class="col s7 offset-s5" style="margin-left:44%">
+    <div class="col s7 offset-s4">
       <div class="card-panel review-info animated fadeInUp">
         <span class="black-text review-body">
             <h5>{{review.username}} rates {{review.album_name}} as a {{review.rating}}/10</h5>
@@ -31,5 +31,23 @@
         </span>
       </div>
     </div>
+    <div id="edit-btn" class="col s1">
+    </div>
   </div>
 </div>
+
+<script>
+  var edit = document.getElementById('edit-btn');
+  
+  window.onload = () => {
+    console.log('IN ONLOAD')
+    if( '{{currentUsername}}' == '{{review.username}}')
+    {
+      edit.innerHTML = '<a class="animated slideInUp" style="position:fixed" href="/reviews/{{review._id}}/edit">\n'+
+                  '<button class="btn waves-effect waves-light" type="button">\n' +
+                    'EDIT\n' + 
+                    '</button>\n' +
+                    '</a>';
+    }
+  }
+</script>

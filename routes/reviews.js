@@ -83,4 +83,22 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.get('/:id/edit', auth.requireLogin, (req, res) => {
+    Review.findById(req.params.id, function(err, review) {
+      if( (req.session.username != review.username) || err) 
+      { console.error(err) }
+      else
+      {
+        res.render('reviews/edit', { review });
+      }
+    });
+});
+
+router.post('/:id', auth.requireLogin, (req, res) => {
+    Review.findByIdAndUpdate(req.params.id, req.body, function(err, review) {
+      if(err) { console.error(err) };
+      res.redirect('/reviews/' + req.params.id);
+    });
+  });
+
 module.exports = router;

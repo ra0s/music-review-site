@@ -33,7 +33,7 @@ nav ul li:hover {
   background-color: #417378;
 }
 nav ul li.active {
-  border-bottom: 3px solid #417378;
+  border-bottom: 4px solid #417378;
 }
 nav ul a.btn {
   margin-top: 3px;
@@ -226,4 +226,8 @@ nav .dropdown-content li a {
 .contact-info a {
   margin-left: 3px;
   margin-right: 3px;
+}
+
+#edit-btn {
+  margin-top: 15%;
 }

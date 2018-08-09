@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const hbs = require('hbs')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -15,7 +16,7 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 app.use(session({ secret: 'secret-unique-code', cookie: { maxAge: 3600000 }, resave: true, saveUninitialized: true }));
 
-
+hbs.registerHelper("equal", require("handlebars-helper-equal"))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

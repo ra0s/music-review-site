@@ -7,6 +7,7 @@
           <i class="material-icons prefix">search</i>
           <input id="album" type="search" name="album" required>
           <label for="album">Album Name</label>
+          <span style="color:#9e9e9e">Queries we accept: "Album Name", "Album Name" by "Artist", "Album Name" "Artist"</span>
     </div>
     </div>
     <div class = "row submit-btn">
@@ -41,7 +42,7 @@
                 let resultsHTML = '';
                 // generate HTML for results
                 if(data.length > 0) //if we found some albums
-                {
+                The Rooms edit and update actions work together the same way that the new and create actions do. The edit action (a GET request to /rooms/:id/edit) return{
                     for (let i = 0; i < data.length; i++) {
                         console.log(data[i].name)
                     resultsHTML +=
