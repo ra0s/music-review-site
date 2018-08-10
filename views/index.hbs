@@ -14,7 +14,7 @@
         </div>
     </div>
     </div>
-<div class="container row">
+{{!-- <div class="container row">
     <h3 class="center-align">New Releases</h3>
     {{#each albums as |album|}}
     <div class="col s3 new-release animated fadeInRight fast">
@@ -29,11 +29,88 @@
         <div class="card-action center-align">
           <form action="/reviews/new?album={{album.name}}&artist={{album.artist}}&uri={{album.uri}}&img={{album.img}}" method="post">
           <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
-          <a style="margin-left: 10px" href="/reviews/album?name={{album.name}}&artist={{album.artist}}" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          <a style="margin-left: 10px;" href="/reviews/album?name={{album.name}}&artist={{album.artist}}&uri={{album.uri}}" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          </form>
         </div>
       </div>
     </div>
     {{/each}}
+</div> --}}
+
+<div class="container row">
+    <h3 class="center-align">New Releases</h3>
+
+    <div class="col s3 new-release animated fadeInRight fast">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="https://i.scdn.co/image/421b4a0ceca3adf0ada587af39884619b6d0517f">
+        </div>
+        <div class="card-title center-align">
+          <h6><b>Thunderclouds</b></h6>
+          <h6>Sia</h6>
+        </div>
+        <div class="card-action center-align">
+          <form action="/reviews/new?album=Thunderclouds&artist=Sia&uri=spotify:album:6LK12zrllpjwB43YA4QX8d&img=https://i.scdn.co/image/421b4a0ceca3adf0ada587af39884619b6d0517f" method="post">
+          <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
+          <a style="margin-left: 10px;" href="/reviews/album?name=Thunderclouds&artist=SIa&uri=spotify:album:6LK12zrllpjwB43YA4QX8d" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s3 new-release animated fadeInRight fast">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="https://i.scdn.co/image/e9d2a4132a1337edc55a0ba6514446fe574fadc4">
+        </div>
+        <div class="card-title center-align">
+          <h6><b>Know.</b></h6>
+          <h6>Jason Mraz</h6>
+        </div>
+        <div class="card-action center-align">
+          <form action="/reviews/new?album=Know.&artist=Jason%20Mraz&uri=spotify:album:7dwIWyB2jdJgL3P2JEgRKm&img=https://i.scdn.co/image/e9d2a4132a1337edc55a0ba6514446fe574fadc4" method="post">
+          <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
+          <a style="margin-left: 10px;" href="reviews/album?name=Know.&artist=Jason%20Mraz&uri=spotify:album:7dwIWyB2jdJgL3P2JEgRKm" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s3 new-release animated fadeInRight fast">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="https://i.scdn.co/image/51808c64f6d9e4b9f7337e641a8bc87c996e5dbb">
+        </div>
+        <div class="card-title center-align">
+          <h6><b>Weekend</b></h6>
+          <h6>Kane Brown</h6>
+        </div>
+        <div class="card-action center-align">
+          <form action="/reviews/new?album=Weekend&artist=Kane%20Brown&uri=spotify:album:5kv25KI43lTo4rzgJKaaFz&img=https://i.scdn.co/image/51808c64f6d9e4b9f7337e641a8bc87c996e5dbb" method="post">
+          <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
+          <a style="margin-left: 10px;" href="/reviews/album?name=Weekend&artist=Kane%20Brown&uri=spotify:album:5kv25KI43lTo4rzgJKaaFz" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s3 new-release animated fadeInRight fast">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="https://i.scdn.co/image/1ab97df000596d224199bbf7492e2bb5d09ea297">
+        </div>
+        <div class="card-title center-align">
+          <h6><b>ASTROWORLD</b></h6>
+          <h6>Travis Scott</h6>
+        </div>
+        <div class="card-action center-align">
+          <form action="/reviews/new?album=ASTROWORLD&artist=Travis%20Scott&uri=spotify:album:41GuZcammIkupMPKH2OJ6I&img=https://i.scdn.co/image/1ab97df000596d224199bbf7492e2bb5d09ea297" method="post">
+          <button class="btn waves-effect waves-light col s5" type="submit">Review</button>
+          <a style="margin-left: 10px;" href="/reviews/album?name=ASTROWORLD&artist=Travis%20Scott&uri=spotify:album:41GuZcammIkupMPKH2OJ6I" class="col s5 offset-s5"><button class="btn waves-effect waves-light" type="button">View Reviews</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+  
 </div>
 
 

@@ -2,10 +2,16 @@
   {{#if reviews}}
     <h3 class="header center-align">Reviews for {{name}} by {{artist}}</h3>
     <h4 class="header center-align">Average rating: {{average}}/10</h4>
-  {{/if}}
-    <ul>
-  {{#each reviews as |review|}}
-    <div class="col s12 m7">
+  <div class="row">
+    <div class="col s4 center-align" style=" position: fixed;width: 25%;">
+      <div class="card-panel review-info animated fadeInDown slow" style="width:420px; height:465px">
+        <span class="black-text review-body">
+            <iframe src="https://open.spotify.com/embed?uri={{uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </span>
+      </div>
+    </div>
+    <div class="col s8 " style="margin-left: 450px;">
+        {{#each reviews as |review|}}
     <div class="card horizontal animated fadeInUp slow hoverable">
       <div class="card-image" style="width: 171px">
         <img src="{{review.img}}">
@@ -18,20 +24,24 @@
           <p>{{review.summary}}</p>
         </div>
         <div class="card-action">
-          <a href="/reviews/{{review._id}}">Read Full Review</a>
-          <a class="col s2"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
-
+          <a class="col s4"href="/reviews/{{review._id}}">Read Full Review</a>
+          <a class="col s4"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
         </div>
       </div>
     </div>
+      {{/each}}
   </div>
-  {{else}}
+  
+  </div>
+    {{else}}
   <div class="col s12 center-align">
-      <h4>There are no reviews available for this album. Write the first review!</h4>
-         <button class="btn-large waves-effect waves-light" type="button" onclick="goBack()">Go Back
-        </button>
+      <h4>There are no reviews available for this album. Write the first review or take a listen below!</h4>
+         <button class="btn-large waves-effect waves-light" type="button" onclick="goBack()">Go Back</button>
   </div>  
-  {{/each}}
+  <div class="card-panel col s3 center-align" style="margin-top: 30px;margin-left:32%; width: 35%;">
+            <iframe src="https://open.spotify.com/embed?uri={{uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+{{/if}}
 </ul>
 
 </div>

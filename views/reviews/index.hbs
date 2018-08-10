@@ -33,8 +33,9 @@
             <p>{{review.summary}}</p>
           </div>
           <div class="card-action">
-            <a href="/reviews/{{review._id}}">Read Full Review</a>
-            <a class="col s2"href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
+            <a class="col s3" href="/reviews/{{review._id}}">Read Full Review</a>
+            <a class="col s3" href="/users/profile?user={{review.username}}">Reviewed by {{review.username}}</a>
+            <a class="col s3" href="/reviews/album?name={{review.album_name}}&artist={{review.album_artist}}&uri={{review.uri}}">All reviews for {{review.album_name}}</a>
           </div>
         </div>
       </div>
@@ -74,8 +75,9 @@
             '<p>' + data[i].summary + '</p>\n' +
           '</div>\n' +
           '<div class="card-action">\n' +
-            '<a href="/reviews/' + data[i]._id + '">Read Full Review</a>\n' +
-            '<a class="col s2"href="/users/profile?user=' + data[i].username + '">Reviewed by ' + data[i].username + '</a>\n' +
+            '<a class="col s3" href="/reviews/' + data[i]._id + '">Read Full Review</a>\n' +
+            '<a class="col s3"href="/users/profile?user=' + data[i].username + '">Reviewed by ' + data[i].username + '</a>\n' +
+            '<a class="col s3" href="/reviews/album?name=' + data[i].album_name + '&artist=' + data[i].artist_name + '&uri=' + data[i].uri + '">All reviews for ' + data[i].album_name + '</a>\n' +
           '</div>\n' +
         '</div>\n' +
       '</div>\n' +

@@ -71,7 +71,7 @@ router.get('/album', (req, res) => {
             average+=reviews[i].rating;
         average/=reviews.length;
         average = Math.round(average*10)/10;
-        res.render('reviews/album', {reviews, average, name: req.query.name, artist: req.query.artist, title: req.query.name + ' reviews'});
+        res.render('reviews/album', {reviews, average, name: req.query.name, artist: req.query.artist, title: req.query.name + ' reviews', uri: req.query.uri});
     })
 });
 
