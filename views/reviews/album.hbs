@@ -31,9 +31,9 @@
     </div>
       {{/each}}
   </div>
-  
   </div>
-    {{else}}
+  {{/if}}
+    {{#unless reviews}}
   <div class="col s12 center-align">
       <h4>There are no reviews available for this album. Write the first review or take a listen below!</h4>
          <button class="btn-large waves-effect waves-light" type="button" onclick="goBack()">Go Back</button>
@@ -41,9 +41,8 @@
   <div class="card-panel col s3 center-align" style="margin-top: 30px;margin-left:32%; width: 35%;">
             <iframe src="https://open.spotify.com/embed?uri={{uri}}" width="390" height="420"frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </div>
-{{/if}}
 </ul>
-
+{{/unless}}
 </div>
 <script>
     function goBack() {
