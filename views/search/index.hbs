@@ -41,8 +41,8 @@
         .then((data) => {
                 let resultsHTML = '';
                 // generate HTML for results
-                if(data.length > 0) //if we found some albums
-                The Rooms edit and update actions work together the same way that the new and create actions do. The edit action (a GET request to /rooms/:id/edit) return{
+                if(data.length > 0)
+                { //if we found some albums
                     for (let i = 0; i < data.length; i++) {
                         console.log(data[i].name)
                     resultsHTML +=
